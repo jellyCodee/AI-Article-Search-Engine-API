@@ -27,7 +27,7 @@ app.add_middleware(
 
 
 
-data = pd.read_csv('https://github.com/jellyCodee/AI-Article-Search-Engine-API/blob/main/articles.csv')
+data = pd.read_csv('articles.csv')
 data['Title'] = data['Title'].apply(lambda x: x.lower())
 
 
