@@ -1,1 +1,1 @@
-web: uvicorn main:app --host=0.0.0.0 
+web=2: worker=1 uvicorn main:app
