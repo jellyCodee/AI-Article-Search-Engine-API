@@ -62,7 +62,7 @@ def cosine_sim(text1, query):
 
 
 @app.get("/api")
-def get_result(query: str):
+def get_result(query: str) -> list:
     data['Cosine_sim'] = data['Title'].apply(lambda x: cosine_sim(x, query))
     result = data.sort_values(by='Cosine_sim', ascending=False).head(10).values.tolist()
     return result
