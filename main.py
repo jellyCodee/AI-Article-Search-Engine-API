@@ -1,7 +1,7 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
 import pandas as pd
-import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 import nltk
 from nltk import word_tokenize
@@ -15,7 +15,9 @@ app = FastAPI(title="Article Search Engine API")
 #     nltk.download('stopwords')
 #     nltk.download('wordnet')
 #     nltk.download('omw-1.4')
-    
+
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.add_middleware(
     CORSMiddleware,
@@ -27,7 +29,7 @@ app.add_middleware(
 
 
 
-data = pd.read_csv('articles.csv')
+data = pd.read_csv('static/articles.csv')
 data['Title'] = data['Title'].apply(lambda x: x.lower())
 
 
