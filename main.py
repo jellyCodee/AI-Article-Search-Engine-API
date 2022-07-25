@@ -10,11 +10,11 @@ from nltk.stem import WordNetLemmatizer
 app = FastAPI(title="Article Search Engine API")
 
 
-@app.on_event("startup")
-def on_startup():
-    nltk.download('stopwords')
-    nltk.download('wordnet')
-    nltk.download('omw-1.4')
+# @app.on_event("startup")
+# def on_startup():
+#     nltk.download('stopwords')
+#     nltk.download('wordnet')
+#     nltk.download('omw-1.4')
     
 
 app.add_middleware(
